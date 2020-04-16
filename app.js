@@ -27,7 +27,14 @@ console.log('calculating')
     } else {
         showError('Please review your numbers and try again')
     }
+
+    clearResults();
+
     e.preventDefault();
+}
+
+function clearResults(){
+    document.querySelector()
 }
 
 function showError(error){
@@ -50,6 +57,7 @@ function showError(error){
 
     // CLEAR ERROR setTimout() to remove the header after a certain number of seconds to inprove user experience.
     setTimeout(clearError, 3000);
+
 }
 
 function clearError(){
