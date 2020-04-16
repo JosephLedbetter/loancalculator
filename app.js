@@ -45,4 +45,13 @@ function showError(error){
     // Create text node and append to div
     errDiv.appendChild(document.createTextNode(error)) 
 
+    // Insert error above heading
+    card.insertBefore(errDiv, heading);
+
+    // CLEAR ERROR setTimout() to remove the header after a certain number of seconds to inprove user experience.
+    setTimeout(clearError, 3000);
+}
+
+function clearError(){
+    document.querySelector('.alert').remove();
 }
