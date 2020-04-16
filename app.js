@@ -1,12 +1,3 @@
-// const loanAmount = document.querySelector('#amount');
-
-
-// loadEventListener();
-
-// function loadEventListener(){
-   
-// }
-
 // LISTEN FOR SUBMISSION
 document.getElementById('loan-form').addEventListener('submit', calculateResults);
 
@@ -34,8 +25,24 @@ console.log('calculating')
         totalPayment.value = (monthly*calculatedPayments).toFixed(2);
         totalInterest.value = ((monthly * calculatedPayments) - principal).toFixed(2);
     } else {
-        console.log('please review your numbers')
+        showError('Please review your numbers and try again')
     }
-
     e.preventDefault();
+}
+
+function showError(error){
+
+    // createElement() to create as a reponse to an invalid entry
+    const errDiv = document.createElement('div');
+
+    // Get elements
+    const card = document.querySelector('.card');
+    const heading = document.querySelector('.heading');
+
+    // Add class
+    errDiv.className = 'alert alert-danger';
+
+    // Create text node and append to div
+    errDiv.appendChild(document.createTextNode(error)) 
+
 }
