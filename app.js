@@ -1,5 +1,5 @@
 // const loanAmount = document.querySelector('#amount');
-/
+
 
 // loadEventListener();
 
@@ -21,6 +21,21 @@ console.log('calculating')
     const totalPayment = document.getElementById('total-payment');
     const totalInterest = document.getElementById('total-interest');
 
+    const principal = parseFloat(amount.value)
+    const calculatedInterest = parseFloat(interest.value) / 100 / 12;
+    const calculatedPayments = parseFloat(years.value) * 12;
+    
+    // Computing the monthly payment
+    const x = Math.pow(1 + calculatedInterest, calculatedPayments);
+    const monthly = (principal * x * calculatedInterest)/(x - 1);
+
+    if(isFinite(monthly)){
+        monthlyPayment.value = monthly.toFixed(2);
+        totalPayment.value = (monthly*calculatedPayments).toFixed(2);
+        totalInterest.value = ((monthly * calculatedPayments) - principal).toFixed(2);
+    } else {
+        console.log('please review your numbers')
+    }
 
     e.preventDefault();
 }
