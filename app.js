@@ -12,10 +12,12 @@ console.log('calculating')
     const monthlyPayment = document.getElementById('monthly-payment');
     const totalPayment = document.getElementById('total-payment');
     const totalInterest = document.getElementById('total-interest');
+    const saveLoan = document.getElementById('save');
 
     const principal = parseFloat(amount.value)
     const calculatedInterest = parseFloat(interest.value) / 100 / 12;
     const calculatedPayments = parseFloat(years.value) * 12;
+    
     
     // Computing the monthly payment
     const x = Math.pow(1 + calculatedInterest, calculatedPayments);
@@ -43,9 +45,38 @@ console.log('calculating')
         totalInterest.value = "";
     }
 
+    save.addEventListener('click', saveCalculation);
+    
+    function saveCalculation(){
+        console.log('item');
+        let loanList;
+    
+        if(localStorage.getItem('loanList') === null){
+            loanList = [];
+        }   else {
+            loanList = JSON.parse(localStorage.getItem('loanList'))
+        }
+        loanList.push(results);
+
+        localStorage.setItem('loanList', JSON.stringify(loanList));
+    }
+    
+
     e.preventDefault();
+   
 }
 
+function saveCalculation(){
+    console.log(item);
+    let loanList;
+
+    if(localStorage.getItem('loanList') === null){
+        loanList = [];
+    }   else {
+        loanList = JSON.parse(localStorage.getItem('loanList'))
+    }
+
+}
 
 
 function showError(error){
