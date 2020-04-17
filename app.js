@@ -28,14 +28,19 @@ console.log('calculating')
         showError('Please review your numbers and try again')
     }
 
-    clearResults();
+    const results = document.getElementById('results');
+    results.addEventListener('click', clearResults);
 
     e.preventDefault();
 }
 
-function clearResults(){
-    document.querySelector()
+function clearResults(e){
+    console.log('click heard')
 }
+
+
+
+
 
 function showError(error){
 
