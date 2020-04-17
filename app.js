@@ -5,6 +5,7 @@ document.getElementById('loan-form').addEventListener('submit', calculateResults
 function  calculateResults(e){
 console.log('calculating')
 // UI Variables
+    const item = document.getElementById('item')
     const amount = document.getElementById('amount');
     const interest = document.getElementById('interest');
     const years = document.getElementById('years');
@@ -33,12 +34,13 @@ console.log('calculating')
 
 
     function clearResults(e){
-        monthlyPayment.value = "";
-        totalPayment.value = "";  
-        totalInterest.value = "";  
+        item.value = "";
         amount.value = "";
         interest.value = "";
         years.value = "";
+        monthlyPayment.value = "";
+        totalPayment.value = "";  
+        totalInterest.value = "";
     }
 
     e.preventDefault();

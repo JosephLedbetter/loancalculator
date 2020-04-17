@@ -25,6 +25,11 @@
                     <!-- FORM START -->
                     <form action="" id="loan-form">
 
+                        <!-- item to purchase -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="item" placeholder="Purchase Item">
+                        </div>
+
                         <!-- amount div -->
                         <div class="form-group">
                             <div class="input-group">
@@ -45,9 +50,10 @@
                         <div class="form-group">
                             <input type="number" class="form-control" id="years" placeholder="Years to repay">
                         </div>
+                        <!-- calculate button -->
                         <div class="form-group">
                             <input type="submit" value="Calculate" class="btn btn-block"
-                                style="background:red; color:white; font-weight: bolder">
+                                style="background:#fa4a4a; color:white; font-weight: bolder">
                         </div>
                     </form>
                     <!-- FORM END-->
@@ -81,6 +87,10 @@
                         <div class="form-group">
                             <input type="clear" value="Reset" class="btn btn-block" id="clear"
                                 style="background:#cac9c9; color:#7e7d7d; border: 1px #7e7d7d solid; font-weight: bolder">
+                        </div>
+                        <div class="form-group">
+                            <input title="Saved to Local Storage" type="submit" value="Save Calculation" class="btn btn-block" id="clear"
+                                style="background:#548ff5; color:white; font-weight: bolder" >
                         </div>
                     </div>
                 </div>
