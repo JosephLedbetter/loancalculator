@@ -31,14 +31,18 @@ console.log('calculating')
     const results = document.getElementById('results');
     results.addEventListener('click', clearResults);
 
+
+    function clearResults(e){
+        monthlyPayment.value = "";
+        totalPayment.value = "";  
+        totalInterest.value = "";  
+        amount.value = "";
+        interest.value = "";
+        years.value = "";
+    }
+
     e.preventDefault();
 }
-
-function clearResults(e){
-    console.log('click heard')
-}
-
-
 
 
 
