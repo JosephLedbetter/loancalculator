@@ -1,9 +1,21 @@
 // LISTEN FOR SUBMISSION
-document.getElementById('loan-form').addEventListener('submit', calculateResults);
+document.getElementById('loan-form').addEventListener('submit', function(e){
+
+// // Hide Results
+document.getElementById('results').style.display = 'none';
+
+// // Show Loader 
+document.querySelector('#loading').style.display = 'block';
+
+setTimeout(calculateResults, 2000);
+
+e.preventDefault();
+});
+
 
 // CALCULATE RESULTS FUNCTION
-function  calculateResults(e){
-console.log('calculating')
+function  calculateResults(){
+    console.log('Calculating...')
 // UI Variables
     const item = document.getElementById('item')
     const amount = document.getElementById('amount');
@@ -12,7 +24,7 @@ console.log('calculating')
     const monthlyPayment = document.getElementById('monthly-payment');
     const totalPayment = document.getElementById('total-payment');
     const totalInterest = document.getElementById('total-interest');
-    const saveLoan = document.getElementById('save');
+    let saveLoan = document.getElementById('save');
 
     const principal = parseFloat(amount.value)
     const calculatedInterest = parseFloat(interest.value) / 100 / 12;
@@ -27,11 +39,17 @@ console.log('calculating')
         monthlyPayment.value = monthly.toFixed(2);
         totalPayment.value = (monthly*calculatedPayments).toFixed(2);
         totalInterest.value = ((monthly * calculatedPayments) - principal).toFixed(2);
+        
+        // // Showing results after calculation
+        document.getElementById('results').style.display = 'block';
+        // // Hiding loader after calculation
+        document.getElementById('loading').style.display = 'none';
+
     } else {
         showError('Please review your numbers and try again')
     }
 
-    const results = document.getElementById('results');
+    const results = document.getElementsById('save');
     results.addEventListener('click', clearResults);
 
 
@@ -44,8 +62,7 @@ console.log('calculating')
         totalPayment.value = "";  
         totalInterest.value = "";
     }
-
-    save.addEventListener('click', saveCalculation);
+    saveLoan.addEventListener('click', saveCalculation);
     
     function saveCalculation(){
         console.log('item');
@@ -57,14 +74,13 @@ console.log('calculating')
             loanList = JSON.parse(localStorage.getItem('loanList'))
         }
         loanList.push(results);
-
+    
         localStorage.setItem('loanList', JSON.stringify(loanList));
     }
-    
-
-    e.preventDefault();
    
 }
+
+
 
 function saveCalculation(){
     console.log(item);
@@ -105,3 +121,5 @@ function showError(error){
 function clearError(){
     document.querySelector('.alert').remove();
 }
+
+// localStorage.removeItem('loanList')
