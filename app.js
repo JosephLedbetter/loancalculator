@@ -63,18 +63,36 @@ function  calculateResults(){
         totalInterest.value = "";    
 }
 
+${'#save'}.on('click', saveCalculation);
+
 }
 
 
-// function saveCalculation(){
-//     console.log(item);
-//     let loanList;
+function saveCalculation(){
 
-//     if(localStorage.getItem('loanList') === null){
-//         loanList = [];
-//     }   else {
-//         loanList = JSON.parse(localStorage.getItem('loanList'))
-//     }
+    let newLoanItem= (`
+        Purchase Item: ${item.value}, 
+        Loan Amount: ${amount.value},
+        Interest Rate: ${interest.value}, 
+        Years to repay: ${years.value}, 
+        `);
+
+    console.log(newLoanItem);
+
+        let loanList;
+
+        if (localStorage.getItem('loanList') === null){
+        loanList = [];
+        }   else {
+        loanList = JSON.parse(localStorage.getItem('newLoanItem'))
+        }
+}
+
+
+   
+
+
+
 
 // }
 
