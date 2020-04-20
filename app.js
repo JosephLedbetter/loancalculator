@@ -24,7 +24,7 @@ function  calculateResults(){
     const monthlyPayment = document.getElementById('monthly-payment');
     const totalPayment = document.getElementById('total-payment');
     const totalInterest = document.getElementById('total-interest');
-    let saveLoan = document.getElementById('save');
+    // let saveLoan = document.getElementById('save');
 
     const principal = parseFloat(amount.value)
     const calculatedInterest = parseFloat(interest.value) / 100 / 12;
@@ -49,7 +49,7 @@ function  calculateResults(){
         showError('Please review your numbers and try again')
     }
 
-    const results = document.getElementsById('save');
+    const results = document.querySelector('#clear');
     results.addEventListener('click', clearResults);
 
 
@@ -60,39 +60,23 @@ function  calculateResults(){
         years.value = "";
         monthlyPayment.value = "";
         totalPayment.value = "";  
-        totalInterest.value = "";
-    }
-    saveLoan.addEventListener('click', saveCalculation);
-    
-    function saveCalculation(){
-        console.log('item');
-        let loanList;
-    
-        if(localStorage.getItem('loanList') === null){
-            loanList = [];
-        }   else {
-            loanList = JSON.parse(localStorage.getItem('loanList'))
-        }
-        loanList.push(results);
-    
-        localStorage.setItem('loanList', JSON.stringify(loanList));
-    }
-   
+        totalInterest.value = "";    
+}
+
 }
 
 
+// function saveCalculation(){
+//     console.log(item);
+//     let loanList;
 
-function saveCalculation(){
-    console.log(item);
-    let loanList;
+//     if(localStorage.getItem('loanList') === null){
+//         loanList = [];
+//     }   else {
+//         loanList = JSON.parse(localStorage.getItem('loanList'))
+//     }
 
-    if(localStorage.getItem('loanList') === null){
-        loanList = [];
-    }   else {
-        loanList = JSON.parse(localStorage.getItem('loanList'))
-    }
-
-}
+// }
 
 
 function showError(error){
@@ -114,7 +98,7 @@ function showError(error){
     card.insertBefore(errDiv, heading);
 
     // CLEAR ERROR setTimout() to remove the header after a certain number of seconds to inprove user experience.
-    setTimeout(clearError, 3000);
+    setTimeout(clearError, 2000);
 
 }
 
