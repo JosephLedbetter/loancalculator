@@ -25,6 +25,7 @@ function  calculateResults(){
     const totalPayment = document.getElementById('total-payment');
     const totalInterest = document.getElementById('total-interest');
     const saveLoan = document.getElementById('save');
+    const clearSaved = document.getElementById('clear-saved');
 
     const principal = parseFloat(amount.value)
     const calculatedInterest = parseFloat(interest.value) / 100 / 12;
@@ -64,6 +65,8 @@ function  calculateResults(){
 }
 
 saveLoan.addEventListener('click', saveCalculation);
+clearSaved.addEventListener('click', deleteAllSaved);
+
 
 }
 
@@ -113,6 +116,30 @@ function clearError(){
     document.querySelector('.alert').remove();
     document.querySelector('#loading').style.display = 'none';
 }
+
+
+function deleteAllSaved(){
+
+    let loanList = JSON.parse(localStorage.getItem('allLoans')); 
+    if (loanList == null) loanList = [];
+    
+    let newLoanItem = [
+    'Purchase Item: ' + item.value, 
+    'Loan Amount: ' + amount.value,
+    'Interest Rate: ' + interest.value, 
+    'Years to repay: ' + years.value, 
+         ];
+
+         loanList.forEach(function(newLoanItem, index){
+             if (newLoanItem.textContent === newLoanItem){
+                 loanList.splice(index, 1);
+             }
+         })
+    localStorage.setItem('allLoans', JSON.stringify(loanList));
+    
+}
+
+
 
 
 // localStorage.removeItem('loanList');
