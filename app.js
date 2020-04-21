@@ -111,8 +111,9 @@ function showError(error){
 
 function clearError(){
     document.querySelector('.alert').remove();
-    document.getElementById('#loading').style.display('none')
+    document.querySelector('#loading').style.display = 'none';
 }
+
 
 // localStorage.removeItem('loanList');
 // localStorage.removeItem('allLoans')
