@@ -68,34 +68,23 @@ saveLoan.addEventListener('click', saveCalculation);
 }
 
 
-function saveCalculation(e){
-
-    let newLoanItem= [
+function saveCalculation(){
+    
+        let loanList = JSON.parse(localStorage.getItem('allLoans')); 
+        if (loanList == null) loanList = [];
+        
+        let newLoanItem= [
         'Purchase Item: ' + item.value, 
         'Loan Amount: ' + amount.value,
         'Interest Rate: ' + interest.value, 
         'Years to repay: ' + years.value, 
-    ];
-
+             ];
     console.log(newLoanItem);
-
-        let loanList;
-
-        if (localStorage.getItem('loanList') === null){
-        loanList = [];
-        }   else {
-        loanList = JSON.parse(localStorage.getItem('newLoanItem'))
-        }
         loanList.push(newLoanItem);
 
-        localStorage.setItem('loanList', JSON.stringify(loanList));
-
-        e.preventDefault();
+        localStorage.setItem('allLoans', JSON.stringify(loanList));
+        
 }
-
-
-   
-
 
 function showError(error){
 
@@ -122,6 +111,8 @@ function showError(error){
 
 function clearError(){
     document.querySelector('.alert').remove();
+    document.getElementById('#loading').style.display('none')
 }
 
-// localStorage.removeItem('loanList')
+// localStorage.removeItem('loanList');
+// localStorage.removeItem('allLoans')
