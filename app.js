@@ -1,6 +1,9 @@
 // LISTEN FOR SUBMISSION
 document.getElementById('loan-form').addEventListener('submit', function(e){
 
+// Showing main content holder
+// document.getElementById('content-holder').style.display = 'none';
+
 // // Hide Results
 document.getElementById('results').style.display = 'none';
 
