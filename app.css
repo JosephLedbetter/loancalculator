@@ -10,3 +10,22 @@ body{
     border-radius: 3px 0 0 3px;
 }
 
+#results{
+    position: relative;
+    display: block;
+}
+
+#response{
+    display: inline;
+}
+
+#save{
+    width: 45%;
+}
+
+#clear-saved{
+    width: 45%;
+    float: right;
+    position: relative;
+    bottom: 46px;
+}
