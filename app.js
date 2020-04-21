@@ -68,14 +68,14 @@ saveLoan.addEventListener('click', saveCalculation);
 }
 
 
-function saveCalculation(){
+function saveCalculation(e){
 
-    let newLoanItem= (`
-        Purchase Item: ${item.value}, 
-        Loan Amount: ${amount.value},
-        Interest Rate: ${interest.value}, 
-        Years to repay: ${years.value}, 
-        `);
+    let newLoanItem= [
+        'Purchase Item: ' + item.value, 
+        'Loan Amount: ' + amount.value,
+        'Interest Rate: ' + interest.value, 
+        'Years to repay: ' + years.value, 
+    ];
 
     console.log(newLoanItem);
 
@@ -86,15 +86,15 @@ function saveCalculation(){
         }   else {
         loanList = JSON.parse(localStorage.getItem('newLoanItem'))
         }
+        loanList.push(newLoanItem);
+
+        localStorage.setItem('loanList', JSON.stringify(loanList));
+
+        e.preventDefault();
 }
 
 
    
-
-
-
-
-// }
 
 
 function showError(error){
