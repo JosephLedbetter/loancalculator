@@ -24,7 +24,7 @@ function  calculateResults(){
     const monthlyPayment = document.getElementById('monthly-payment');
     const totalPayment = document.getElementById('total-payment');
     const totalInterest = document.getElementById('total-interest');
-    // let saveLoan = document.getElementById('save');
+    const saveLoan = document.getElementById('save');
 
     const principal = parseFloat(amount.value)
     const calculatedInterest = parseFloat(interest.value) / 100 / 12;
@@ -63,7 +63,7 @@ function  calculateResults(){
         totalInterest.value = "";    
 }
 
-${'#save'}.on('click', saveCalculation);
+saveLoan.addEventListener('click', saveCalculation);
 
 }
 
