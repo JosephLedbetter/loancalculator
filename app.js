@@ -118,29 +118,9 @@ function clearError(){
 }
 
 
-function deleteAllSaved(){
-
-    let loanList = JSON.parse(localStorage.getItem('allLoans')); 
-    if (loanList == null) loanList = [];
-    
-    let newLoanItem = [
-    'Purchase Item: ' + item.value, 
-    'Loan Amount: ' + amount.value,
-    'Interest Rate: ' + interest.value, 
-    'Years to repay: ' + years.value, 
-         ];
-
-         loanList.forEach(function(newLoanItem, index){
-             if (newLoanItem.textContent === newLoanItem){
-                 loanList.splice(index, 1);
-             }
-         })
-    localStorage.setItem('allLoans', JSON.stringify(loanList));
-    
+function deleteAllSaved(newLoan){
+    localStorage.clear();
 }
-
-
-
 
 // localStorage.removeItem('loanList');
 // localStorage.removeItem('allLoans')
