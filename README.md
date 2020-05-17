@@ -11,3 +11,5 @@ recover the best information to input using money amount, interest rate, and dur
 <li> Style and use Bootstrap to create a card where you can keep track of popular searches for future refenerence,
 or 'favorites'</li>
 </ul>
+
+<h3> Active example through https://josephledbetter.github.io/loancalculator/ </h3>
